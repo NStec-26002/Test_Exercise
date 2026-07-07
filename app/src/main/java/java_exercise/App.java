@@ -3,12 +3,21 @@
  */
 package java_exercise;
 
+import java_exercise.service.Calculator;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
+
+        Calculator calculator = new Calculator();
+        System.out.println("add: " + calculator.add(5, 7));
+        System.out.println("sub: " + calculator.sub(7, 4));
+        System.out.println("multi: " + calculator.multi(6, 1));
+        System.out.println("divide: " + calculator.divide(13, 5));
+
         System.out.println(new App().getGreeting());
     }
 }
