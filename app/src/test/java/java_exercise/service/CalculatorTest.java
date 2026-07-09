@@ -1,6 +1,7 @@
 package java_exercise.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.nio.channels.CancelledKeyException;
 
@@ -39,7 +40,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testDivide_case1() {
+    public void testDivide_case1_OK1() {
         // テスト対象のクラスインスタンス取得
         Calculator calculator = new Calculator();
         // テスト対象メソッドの実行
@@ -48,5 +49,13 @@ public class CalculatorTest {
         double expected = 7.2;
         // 実行結果の評価
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testDivide_case1_OK2() {
+        Calculator calculator = new Calculator();
+        assertThrows(ArithmeticException.class, () -> {
+            calculator.divide(10, 0);
+        });
     }
 }
